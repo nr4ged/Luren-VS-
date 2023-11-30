@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Nosotros - Repuestos Luren</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Montserrat+Alternates|Poppins&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat Alternates', sans-serif;
+}
+
+body {
+  background: url(https://www.pixelstalk.net/wp-content/uploads/images5/Black-Car-Wallpaper-4K-scaled.jpg);
+  background-size: 100vw 100vh;
+  background-repeat: no-repeat;
+}
+
+.capa {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0,0,0,0.6);
+  z-index: -1;
+  top: 0;
+  left: 0;
+}
+
+.header {
+  width: 100%;
+  height: 100px;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.container .btn-menu, .logo {
+  float: left;
+  line-height: 100px;
+}
+
+.container .btn-menu label {
+  color: #fff;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.logo h1 {
+  color: #fff;
+  font-weight: 400;
+  font-size: 22px;
+  margin-left: 10px;
+}
+
+.container .menu {
+  float: right;
+  line-height: 100px;
+}
+
+.container .menu a {
+  display: inline-block;
+  padding: 15px;
+  line-height: normal;
+  text-decoration: none;
+  color: #fff;
+  transition: all 0.3s ease;
+  border-bottom: 2px solid transparent;
+  font-size: 15px;
+  margin-right: 5px;
+}
+
+.container .menu a:hover {
+  border-bottom: 2px solid #c7c7c7;
+  padding-bottom: 5px;
+}
+
+#btn-menu {
+  display: none;
+}
+
+.container-menu {
+  position: absolute;
+  background: rgba(0,0,0,0.5);
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  transition: all 500ms ease;
+  opacity: 0;
+  visibility: hidden;
+}
+
+#btn-menu:checked ~ .container-menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+.cont-menu {
+  width: 100%;
+  max-width: 250px;
+  background: #1c1c1c;
+  height: 100vh;
+  position: relative;
+  transition: all 500ms ease;
+  transform: translateX(-100%);
+}
+
+#btn-menu:checked ~ .container-menu .cont-menu {
+  transform: translateX(0%);
+}
+
+.cont-menu nav {
+  transform: translateY(15%);
+}
+
+.cont-menu nav a {
+  display: block;
+  text-decoration: none;
+  padding: 20px;
+  color: #c7c7c7;
+  border-left: 5px solid transparent;
+  transition: all 400ms ease;
+}
+
+.cont-menu nav a:hover {
+  border-left: 5px solid #c7c7c7;
+  background: #1f1f1f;
+}
+
+.cont-menu label {
+  position: absolute;
+  right: 5px;
+  top: 10px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.container-central {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  max-width: 400px;
+}
+
+.card-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.card-content {
+  margin-bottom: 20px;
+}
+
+.contacto-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contacto-card ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.contacto-card ul li {
+  margin-bottom: 10px;
+}
+
+.contacto-card ul li:last-child {
+  margin-bottom: 0;
+}
+/* Estilos para el footer */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 10px;
+}
+
+.footer .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer .logo {
+  font-size: 20px;
+}
+
+.footer .contacto {
+  font-size: 16px;
+  text-align: right;
+}
+
+.footer .contacto span {
+  margin-right: 10px;
+}
+
+
+
+</style>
+
+</head>
+
+<body>
+
+<header class="header">
+  <div class="container">
+    <div class="btn-menu">
+      <label for="btn-menu">☰</label>
+    </div>
+    <div class="logo">
+      <h1>Repuestos Luren</h1>
+    </div>
+    <nav class="menu">
+      <a href="#">Inicio</a>
+      <a href="#">Nosotros</a>
+      <a href="#">Blog</a>
+      <a href="#">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<div class="capa"></div>
+
+<input type="checkbox" id="btn-menu">
+<div class="container-menu">
+  <div class="cont-menu">
+    <nav>
+      <br>
+      <br>
+      <a href="PgUsuario">Mantenimiento</a>
+      <br>
+      <a href="#">Consultas</a>
+      <br>
+      <a href="Compra">Adquirir Servicio</a>
+      <br>
+      <a >Consulta de Ventas</a>
+      <br>
+
+    </nav>
+    <label for="btn-menu">×</label>
+  </div>
+</div>
+
+<div class="container-central">
+  <div class="card">
+    <h2 class="card-title">Somos Repuestos Luren</h2>
+    <div class="card-content">
+      <p>En Repuestos Luren nos especializamos en ofrecer repuestos de alta calidad para todo tipo de vehículos. 
+      Nuestro objetivo es brindar a nuestros clientes una amplia gama de opciones y un servicio excepcional.</p>
+    </div>
+  </div>
+  <div class="card">
+    <h2 class="card-title">Contacto</h2>
+    <div class="card-content contacto-card">
+      <ul>
+        <li>Teléfono: +34 645 74 23 44</li>
+        <li>Email: contacto@repuestosluren.com</li>
+        <li>Dirección: Jr.Principal, Lima, Perú</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+      <div class="logo">Repuestos Luren</div>
+      <div class="contacto">
+        <span>Email: contacto@repuestosluren.com</span>
+        <span>Ubicación: Lima, Perú</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
