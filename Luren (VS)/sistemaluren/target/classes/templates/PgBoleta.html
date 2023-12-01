@@ -1,0 +1,317 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Adquirir Servicio</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+	<link rel="stylesheet" href="/css/estilos.css">
+
+</head>
+
+<body>
+
+	<div class="container">
+		<aside>
+			<div class="toggle">
+				<div class="logo">
+					<img th:src="@{img/logoLuren.png}">
+					<h2>Lu<span class="danger">ren</span></h2>
+				</div>
+				<div class="close" id="close-btn">
+					<span class="material-icons-sharp">
+						close
+					</span>
+				</div>
+			</div>
+	  
+			<div class="sidebar">
+				<a href="PgProducto">
+					<span class="material-icons-sharp">
+						dashboard
+					</span>
+					<h3>Mantenimiento Producto</h3>
+				</a>
+				<a href="PgCliente">
+					<span class="material-icons-sharp">
+						person_outline
+					</span>
+					<h3>Mantenimiento Cliente</h3>
+				</a>
+				<a href="PgServicio">
+					<span class="material-icons-sharp">
+						receipt_long
+					</span>
+					<h3>Mantenimiento Servicio</h3>
+				</a>
+				<a href="PgUsuario">
+					<span class="material-icons-sharp">
+						person_outline
+					</span>
+					<h3>Mantenimiento Usuario</h3>
+				</a>
+	  
+				<a href="PgBoleta" class="active">
+					<span class="material-icons-sharp">
+						insights
+					</span>
+					<h3>Adquirir Servicio</h3>
+				</a>
+				<a href="reportePro">
+					<span class="material-icons-sharp">
+						mail_outline
+					</span>
+					<h3>Reporte Productos</h3>
+				</a>
+				<a href="reporteUsu">
+					<span class="material-icons-sharp">
+						inventory
+					</span>
+					<h3>Reporte Usuario</h3>
+				</a>
+				<a href="Nosotros">
+					<span class="material-icons-sharp">
+						settings
+					</span>
+					<h3>Nosotros</h3>
+				</a>
+				<a href="mp3">
+					<span class="material-icons-sharp">
+						receipt_long
+					</span>
+					<h3>Reproductor Mp3</h3>
+				</a>
+				<a href="Login">
+					<span class="material-icons-sharp">
+						logout
+					</span>
+					<h3>Cerrar Sesion</h3>
+				</a>
+			</div>
+		</aside>
+
+		<main>
+			<a href="/">
+				<h1 style="text-align: center;">Automotriz <span class="danger">Luren</span></h1>
+			</a>
+
+			<div class="analyse">
+				<div class="sales">
+					<div>
+						<h3 style="text-align: center;">Adquisicion de <span class="danger">Servicio</span></h3>
+						<br>
+						<div class="user-list">
+							<form action="/PgBoleta" method="post" th:object="${boleta}">
+
+								<div class="form-group">
+									<label for="inputCod">Codigo Boleta</label> <input type="text" class="form-control"
+										id="inputCod" placeholder="Codigo" name="codigo" th:field="*{id}"
+										required>
+								</div>
+								<br>
+								<div class="form-group">
+									<label for="inputNom">Codigo Cliente</label> <input type="text" class="form-control"
+										id="inputNom" placeholder="Nombre" name="nombre" th:field="*{cliente}"
+										required>
+								</div>
+								<br>
+								<div class="form-row">
+									<div class="form-group col-md-6">
+										<label for="inputApe">Codigo Servicio</label> <input type="text"
+											class="form-control" id="inputApe" placeholder="Apellido" name="apellido"
+											th:field="*{servicio}" required>
+									</div>
+									<br>
+									<div class="form-group col-md-6">
+										<label for="inputEmp">Fecha</label> <input type="text" class="form-control"
+											id="inputEmp" placeholder="Ingrese Empresa" name="empresa"
+											th:field="*{fechaGeneracion}" required>
+									</div>
+								</div>
+								<br>
+						</div>
+						<br>
+
+						<div class="btn-container">
+							<button type="submit" name="action" value="registrar" class="btn btn-primary">Registrar</button>
+                                    <button type="submit" name="action" value="actualizar" class="btn btn-warning">Actualizar</button>
+                                    <br>
+                                    <button type="submit" name="action" value="eliminar" class="btn btn-danger">Eliminar</button>
+                                    <button type="button" class="btn btn-secondary" onclick="limpiarCamposCliente()">Limpiar</button>
+                                    <br>
+						</div>
+						</form>
+						<div th:text="${mensaje}"></div>
+					</div>
+				</div>
+			
+
+				<div>
+					<h2 style="text-align: center;"><span class="danger">Boletas</span> Generadas</h2>
+					<table id="id_table" class="table table-striped">
+						<thead>
+							<tr>
+								<th>Codigo Boleta</th>
+								<th>Fecha</th>
+								<th>Codigo Cliente</th>
+								<th>Codigo Servicio</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							<tr th:each="b : ${lstBoleta}">
+								<th scope="row" th:text="${b.id}">1</th>
+								<td th:text="${b.fechaGeneracion}">xx</td>
+								<td th:text="${b.cliente != null ? b.cliente.codigo : ''}">xx</td>
+								<td th:text="${b.servicio != null ? b.servicio.cod_servicio : ''}">xx</td>
+							</tr>
+						</tbody>
+					</table>
+					<div id="pagination" style="text-align: center; margin-top: 20px;">
+						<div id="buttonsContainer">
+							<button id="prevBtn" style="color: #fff; background-color: #1C9028">Anterior</button>
+							<button id="nextBtn" style="color: #fff; background-color: #1C9028">Siguiente</button>
+						</div>
+						<span id="currentPage"></span>
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<div class="right-section">
+			<div class="nav">
+				<button id="menu-btn">
+					<span class="material-icons-sharp">
+						menu
+					</span>
+				</button>
+				<div class="dark-mode">
+					<span class="material-icons-sharp active">
+						light_mode
+					</span>
+					<span class="material-icons-sharp">
+						dark_mode
+					</span>
+				</div>
+
+				<div class="profile">
+					<div class="info">
+						<p>Hey, <b>USER</b></p>
+						<small class="text-muted">Admin</small>
+					</div>
+					<div class="profile-photo">
+						<img src="@{img/perfil.png}">
+					</div>
+				</div>
+
+			</div>
+			<!-- End of Nav -->
+		</div>
+
+	</div>
+
+	<script>
+		window.watsonAssistantChatOptions = {
+			integrationID: "77cb0010-7bfc-49d1-8730-04e39ef8ae8e", // The ID of this integration.
+			region: "au-syd", // The region your integration is hosted in.
+			serviceInstanceID: "bccecd14-f5b8-45cc-983a-f3d4812322c4", // The ID of your service instance.
+			onLoad: function (instance) {instance.render();}
+		};
+		setTimeout(function () {
+			const t = document.createElement('script');
+			t.src = "https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+			document.head.appendChild(t);
+		});
+	</script>
+
+	<script>
+		var table = document.getElementById('id_table');
+		var prevBtn = document.getElementById('prevBtn');
+		var nextBtn = document.getElementById('nextBtn');
+		var currentPageElement = document.getElementById('currentPage');
+
+		var rowsPerPage = 8;
+		var currentPage = 1;
+
+		var totalRows = table.tBodies[0].rows.length;
+		var totalPages = Math.ceil(totalRows / rowsPerPage);
+
+		function showPage(page) {
+			var startIndex = (page - 1) * rowsPerPage;
+			var endIndex = startIndex + rowsPerPage;
+
+			for (var i = 0; i < totalRows; i++) {
+				var row = table.tBodies[0].rows[i];
+				row.style.display = 'none';
+			}
+
+			for (var j = startIndex; j < endIndex && j < totalRows; j++) {
+				var row = table.tBodies[0].rows[j];
+				row.style.display = '';
+			}
+
+			currentPageElement.textContent = 'Tabla ' + page + ' de '
+				+ totalPages;
+		}
+
+		function goToPrevPage() {
+			if (currentPage > 1) {
+				currentPage--;
+				showPage(currentPage);
+			}
+		}
+
+		function goToNextPage() {
+			if (currentPage < totalPages) {
+				currentPage++;
+				showPage(currentPage);
+			}
+		}
+
+		showPage(currentPage);
+
+		prevBtn.addEventListener('click', goToPrevPage);
+		nextBtn.addEventListener('click', goToNextPage);
+	</script>
+
+	<script>
+		const sideMenu = document.querySelector('aside');
+		const menuBtn = document.getElementById('menu-btn');
+		const closeBtn = document.getElementById('close-btn');
+
+		const darkMode = document.querySelector('.dark-mode');
+
+		menuBtn.addEventListener('click', () => {
+			sideMenu.style.display = 'block';
+		});
+
+		closeBtn.addEventListener('click', () => {
+			sideMenu.style.display = 'none';
+		});
+
+		darkMode.addEventListener('click', () => {
+			document.body.classList.toggle('dark-mode-variables');
+			darkMode.querySelector('span:nth-child(1)').classList.toggle('active');
+			darkMode.querySelector('span:nth-child(2)').classList.toggle('active');
+		})
+
+
+		Orders.forEach(order => {
+			const tr = document.createElement('tr');
+			const trContent = `
+        <td>${order.productName}</td>
+        <td>${order.productNumber}</td>
+        <td>${order.paymentStatus}</td>
+        <td class="${order.status === 'Declined' ? 'danger' : order.status === 'Pending' ? 'warning' : 'primary'}">${order.status}</td>
+        <td class="primary">Details</td>
+    `;
+			tr.innerHTML = trContent;
+			document.querySelector('table tbody').appendChild(tr);
+		});
+	</script>
+
+</body>
+
+</html>

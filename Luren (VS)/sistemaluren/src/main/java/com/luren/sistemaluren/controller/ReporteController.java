@@ -1,17 +1,23 @@
 package com.luren.sistemaluren.controller;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ResourceLoader;
 
+import java.io.OutputStream;
 
+import javax.sql.DataSource;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 
-/* 
+import jakarta.servlet.http.HttpServletResponse;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
-*/
+
+
 @Controller
 
 public class ReporteController {
-/*
+
 	@Autowired
 	private DataSource dataSource; // javax
 	@Autowired
@@ -58,7 +64,7 @@ public class ReporteController {
 			e.printStackTrace();
 		}
 	}
-	*/
+	
 	
 	/*
 	 @PostMapping("/filtro")

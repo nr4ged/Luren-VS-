@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-SistemalurenApplication<sistemaluren>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.luren.sistemaluren.SistemalurenApplication",
+            "projectName": "sistemaluren",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

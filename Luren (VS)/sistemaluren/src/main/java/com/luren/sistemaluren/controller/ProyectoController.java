@@ -6,8 +6,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class ProyectoController {
 
-		
-	
 		@GetMapping("/")
 		public String cargarPagPrincipal() {
 			return "Inicio";
@@ -23,6 +21,18 @@ public class ProyectoController {
 		public String cargPgFiltro() {
 			return "Filtro";
 		}
+
+		@GetMapping("/mp3")
+		public String cargarMp3() {
+			return "mp3";
+		}
+
+		@GetMapping("/Nosotros")
+		public String cargarNosotros() {
+			return "Nosotros";
+		}
+
+
 		
 	
 }

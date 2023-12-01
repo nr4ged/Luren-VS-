@@ -51,6 +51,19 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+        <groupId>com.lowagie</groupId>
+        <artifactId>itext</artifactId>
+        <version>2.1.7</version>
+    </dependency>
+
+		<dependency>
+        	<groupId>net.sf.jasperreports</groupId>
+        	<artifactId>jasperreports</artifactId>
+        	<version>6.17.0</version> <!-- Use the latest version available -->
+    	</dependency>
+
 		<dependency>
     		<groupId>mysql</groupId>
     		<artifactId>mysql-connector-java</artifactId>
