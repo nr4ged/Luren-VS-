@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+*<!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
@@ -138,13 +138,16 @@
 							</div>
 							<br>
 							<div class="form-group">
-								<label for="inputTipo">Tipo Usuario</label> <select id="inputTipo"
+								<label for="inputTipo">Tipo Usuario</label>
+
+                                <select id="inputTipo"
 									th:field="*{id_tipo}" class="form-control">
 									<option value="-1">Seleccione...</option>
 									<option th:each="t : ${lstTipoUsuario}"
 										th:value="${t.id_tipo_usuario}"
 										th:text="${t.des_tipo_usuario}"></option>
 								</select>
+                                
 							</div>
 
 							<br>

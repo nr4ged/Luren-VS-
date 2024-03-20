@@ -137,13 +137,22 @@
 											th:value="${cliente.nru_documento} " required>
 									</div>
 									<br>
+                                    
 									<div class="form-group col-md-6">
-										<label for="inputTipo">Tipo</label> <select id="inputTipo"
+
+										<label for="inputTipo">Tipo</label>
+
+                                        <select id="inputTipo"
 											th:field="*{ObjTipoCliente}" class="form-control">
+
 											<option value="-1">Seleccione...</option>
+
 											<option th:each="t : ${lstTipoCliente}"
-												th:value="${t.id_tipocliente}" th:text="${t.documento_cliente}"></option>
+												th:value="${t.id_tipocliente}" th:text="${t.documento_cliente}">
+                                            </option>
+
 										</select>
+
 									</div>
 								</div>
 								<br>
